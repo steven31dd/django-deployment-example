@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+
+<nav>
+  <div class="res-container">
+
+    <ul class="res-nav">
+      <li class="res-navbrand"><a href="{% url 'index' %}">Home</a></li>
+      <li class="res-navlink"><a href="{% url 'SecurityApp:register' %}">Register</a></li>
+
+      {% if user.is_authenticated %}
+        <li class="res-navlink"><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+        <li class="res-navlink"><a href="{% url 'SecurityApp:user_login' %}">Login</a></li>
+      {% endif %}
+
+    </ul>
+
+  </div>
+</nav>
+
+  {% block body_block %}
+
+  {% endblock %}
+
+
+  </body>
+</html>
